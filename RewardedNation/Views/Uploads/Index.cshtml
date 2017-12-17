@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (ViewBag.FileNames != null)
+{
+    <ol>
+        @foreach(var fileName in ViewBag.FileNames)
+        {
+            <li>@fileName</li>
+        }
+    </ol>
+}
+
+@using (Html.BeginForm("Index", "Uploads", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="zip" />
+    <div>
+        <button class="btn btn-default">Submit</button>
+    </div>
+}
